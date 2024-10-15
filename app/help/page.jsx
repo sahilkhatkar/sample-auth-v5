@@ -1,42 +1,23 @@
-"use client";
+import { auth } from "../../auth";
+import styles from "./page.module.css";
 
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../../lib/features/gsheetdata/dataSlice"; // Adjust the path to match your project structure
-
-const MyComponent = () => {
-  const dispatch = useDispatch();
-
-  // Access data and loading state from the store
-  const { data, loading, error } = useSelector((state) => state.data);
-
-  // Dispatch the fetchData thunk when the component mounts
-  // useEffect(() => {
-  //   dispatch(fetchData());
-
-  // }, [dispatch]);
-
-  console.log(data)
-
-  // Conditional rendering based on loading/error states
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (error) {
-  //   return <div>Error: {error}</div>;
-  // }
-
+export default async function SignOutPage() {
+  const session = await auth();
   return (
-    <div>
-      <h1>This is help page</h1>
+    <div className={styles.container}>
+      <h1>Dashboard</h1>
 
-      {data.map((item, index) => (
-        <div key={index}>{index+1}. {item.job_order}</div>
-      ))}
-
+      {/* <p>Hi, {session.user?.email}</p> */}
+      <section className={styles.sessionDetails}>
+        <div>
+          <strong>Version : </strong>
+          <span>1.1</span>
+        </div>
+        {/* <div>
+          <strong>Last login : </strong>
+          <span>2024-10-30T07:58:33.311Z</span>
+        </div> */}
+      </section>
     </div>
   );
-};
-
-export default MyComponent;
+}

@@ -1,5 +1,5 @@
 // src/store/yourSlice.js
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const scriptURL =
   "https://script.google.com/macros/s/AKfycbwyQEojQ3oPDKFgw9hDXz_8BDgtEw1WbM9diSOR1u6nhktzw9ZFqINgUT9vGWdJj8E7/exec";
@@ -8,8 +8,8 @@ const initialState = {
   // sheetData: await fetch(scriptURL, { method: "GET" }).then((res) =>
   //   res.json()
   // ),
+  sheetData: [],
   searchJobStatus: "",
-  data: [],
   loading: false, // Loading state
   error: null,
 };
@@ -37,7 +37,6 @@ export const dataSlice = createSlice({
       //   state = action.payload;
     },
   },
-
   extraReducers: (builder) => {
     // Handle the lifecycle of the async thunk
     builder
@@ -47,7 +46,7 @@ export const dataSlice = createSlice({
       })
       .addCase(fetchData.fulfilled, (state, action) => {
         state.loading = false; // Reset loading when the call succeeds
-        state.data = action.payload; // Populate the state with the fetched data
+        state.sheetData = action.payload; // Populate the state with the fetched data
       })
       .addCase(fetchData.rejected, (state, action) => {
         state.loading = false; // Reset loading when the call fails
