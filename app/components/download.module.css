@@ -1,0 +1,27 @@
+.downloadBtn {
+    display: flex;
+    align-items: center;
+    /* color: #0070f3; */
+    color: gray;
+    background: var(--color-background);
+    border: 1px solid var(--color-background);
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+
+    & svg {
+        font-size: 1.2rem;
+    }
+
+    cursor: pointer;
+
+    transition: all 200ms ease-in-out;
+}
+
+.downloadBtn:hover {
+    color: #0070f3;
+    border: 1px solid #0070f3;
+}
+
+.downloadBtn:focus.downloadBtn:active {
+scale: 0.9;
+}
