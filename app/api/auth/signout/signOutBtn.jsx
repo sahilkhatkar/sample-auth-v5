@@ -1,7 +1,7 @@
 import { signOut, auth } from "../../../../auth";
 import styles from "./page.module.css";
 import Image from "next/image";
-import BgImg from "../../../public/welcome-bg.jpg";
+// import BgImg from "../../../public/welcome-bg.jpg";
 
 export default async function SignOutPage() {
   const session = await auth();
@@ -11,7 +11,7 @@ export default async function SignOutPage() {
 
       <div className={styles.profile}>
         <Image
-          src={session?.user.image || BgImg}
+          src={session?.user.image}
           width={80}
           height={80}
           alt="profile"
