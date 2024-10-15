@@ -3,7 +3,7 @@
 import styles from "./page.module.css";
 import { useTheme } from "../ThemeProvider";
 
-export default async function SignOutPage() {
+export default function SignOutPage() {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -11,10 +11,6 @@ export default async function SignOutPage() {
       <h1>Settings</h1>
       <section className={styles.sessionDetails}>
         <strong>Theme: </strong>
-        {/* <div>
-          <button>Light</button>
-          <button>Dark</button>
-        </div> */}
 
         <button onClick={toggleTheme}>
           {theme === "light" ? "dark" : "light"}

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Table from "../components/Table";
 
-export default async function SignOutPage() {
+export default function SignOutPage() {
   const router = useRouter();
 
   const data = useSelector((state) => state.data.sheetData);

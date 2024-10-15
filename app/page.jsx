@@ -8,7 +8,7 @@ import Barchart from "./components/Barchart";
 import Piechart from "./components/Piechart";
 import Name from "./components/Name";
 
-export default async function Home() {
+export default function Home() {
   const chartRef = useRef(null);
   const chartInstanceRef = useRef(null);
   const [result, setResult] = useState([]);
