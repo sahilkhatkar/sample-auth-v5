@@ -134,9 +134,12 @@ export default function Page() {
               onClick={() => {
                 setCurrentPage(1);
                 const canceledOrders = data.reduce((accumulator, job) => {
-                  if (job.dispatch_order_status === "Cancel") {
+                  if (job.dimensions == "" || job.paper == "" || job.gsm == "" || job.quantity == "" || job.rate =="" || job.sheet_size_length =="" || job.sheet_size_width =="") {
                     accumulator.push(job);
                   }
+                  // if (job.dispatch_order_status === "Cancel") {
+                  //   accumulator.push(job);
+                  // }
                   return accumulator;
                 }, []);
                 setFilterJobList(canceledOrders);

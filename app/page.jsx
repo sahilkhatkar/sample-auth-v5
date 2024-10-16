@@ -44,10 +44,10 @@ export default function Home() {
           {/* <Name /> */}
         </h1>
       </div>
-      <div className={styles.charts}>
+      {/* <div className={styles.charts}>
         <Piechart label="Orders" data={result} />
         <Barchart label="Orders" data={result} />
-      </div>
+      </div> */}
     </div>
   );
 }
